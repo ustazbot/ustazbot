@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import Image from 'next/image';
 import AnswerContent from './AnswerContent';
 
 function LoadingFallback() {
@@ -15,6 +16,16 @@ export default function AnswerPage() {
     <main className="min-h-screen bg-gray-50 flex flex-col items-center px-4 py-8">
       <div className="w-full max-w-[480px] flex flex-col gap-4">
         <div className="text-center">
+          <div className="flex justify-center mb-2">
+            <Image
+              src="/icon-ustazbot.png"
+              alt="UstazBot"
+              width={48}
+              height={48}
+              className="rounded-xl"
+              priority
+            />
+          </div>
           <span className="text-2xl font-bold text-emerald-600">UstazBot</span>
         </div>
         <Suspense fallback={<LoadingFallback />}>

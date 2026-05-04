@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { Send, Sparkles, Landmark, Share2, Video } from 'lucide-react';
 
 const EXAMPLE_QUESTIONS = [
@@ -46,6 +47,16 @@ export default function HomePage() {
 
         {/* Header */}
         <div className="text-center pt-4">
+          <div className="flex justify-center mb-3">
+            <Image
+              src="/icon-ustazbot.png"
+              alt="UstazBot"
+              width={72}
+              height={72}
+              className="rounded-2xl"
+              priority
+            />
+          </div>
           <h1 className="text-3xl font-bold text-emerald-600">UstazBot</h1>
           <p className="text-gray-600 mt-2 text-sm leading-relaxed">
             Jawapan ringkas dan tersusun untuk persoalan agama anda

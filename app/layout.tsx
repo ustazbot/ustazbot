@@ -9,10 +9,15 @@ export const metadata: Metadata = {
   description:
     'Jawapan ringkas dan tersusun untuk persoalan agama anda. Berdasarkan rujukan ASWJ dan mazhab Shafie.',
   keywords: ['Islam', 'fiqh', 'hukum agama', 'Malaysia', 'UstazBot', 'Shafie'],
+  icons: {
+    icon: '/icon-ustazbot.png',
+    apple: '/icon-ustazbot.png',
+  },
   openGraph: {
     title: 'UstazBot — Jawapan Agama Islam',
     description: 'Jawapan ringkas dan tersusun untuk persoalan agama anda.',
     type: 'website',
+    images: ['/icon-ustazbot.png'],
   },
 };
 
