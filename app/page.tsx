@@ -13,7 +13,7 @@ const EXAMPLE_QUESTIONS = [
 
 const CHATGPT_URL =
   process.env.NEXT_PUBLIC_CHATGPT_URL ??
-  'https://chatgpt.com/g/g-67f359db82ec81919978e7b851ecbdb3-ustazbot';
+  'https://chatgpt.com/g/g-69d7857d6c6c8191b8f7c99f0a28f159-ustazbot';
 
 function trackEvent(event: string, payload: Record<string, unknown> = {}): void {
   fetch('/api/track', {
