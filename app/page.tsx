@@ -146,7 +146,7 @@ export default function HomePage() {
               <span className="text-sm font-medium text-gray-700">Facebook</span>
             </a>
             <a
-              href="https://www.tiktok.com/@pakcikbuku.com"
+              href="https://www.tiktok.com/@ustazbot"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 flex items-center justify-center gap-2.5 bg-white rounded-2xl p-3.5 shadow-sm border border-gray-100 hover:border-gray-400 transition-colors"
