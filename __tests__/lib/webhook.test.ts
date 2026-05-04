@@ -30,9 +30,10 @@ describe('fireWebhook', () => {
     );
   });
 
-  it('does not throw if fetch rejects', () => {
+  it('does not throw if fetch rejects', async () => {
     process.env.MAKE_WEBHOOK_URL = 'https://hook.make.com/test';
     fetchMock.mockRejectedValue(new Error('network'));
-    expect(() => fireWebhook({ event: 'test' })).not.toThrow();
+    fireWebhook({ event: 'test' });
+    await Promise.resolve(); // flush microtasks so rejection settles through .catch()
   });
 });
