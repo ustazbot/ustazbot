@@ -16,15 +16,13 @@ const CHATGPT_URL =
   'https://chatgpt.com/g/g-67f359db82ec81919978e7b851ecbdb3-ustazbot';
 
 function trackEvent(event: string, payload: Record<string, unknown> = {}): void {
-  try {
-    fetch('/api/track', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ event, timestamp: new Date().toISOString(), ...payload }),
-    });
-  } catch {
-    // silent
-  }
+  fetch('/api/track', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ event, timestamp: new Date().toISOString(), ...payload }),
+  }).catch(() => {
+    // silent — fire-and-forget
+  });
 }
 
 export default function HomePage() {
