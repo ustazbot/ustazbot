@@ -117,8 +117,6 @@ export default function HomePage() {
             </div>
           </a>
           <div
-            role="button"
-            onClick={() => trackEvent('click_umrah')}
             className="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-sm border border-gray-100 opacity-70 cursor-not-allowed"
           >
             <div className="bg-gray-100 p-2.5 rounded-xl">

@@ -36,10 +36,10 @@ function trackEvent(event: string, payload: Record<string, unknown> = {}): void 
 }
 
 function formatAnswerText(question: string, answer: Answer): string {
-  const parts = [`Soalan: ${question}`, `\nJawapan: ${answer.summary}`, `\n${answer.explanation}`];
-  if (answer.dalil) parts.push(`\nDalil: ${answer.dalil}`);
-  if (answer.source) parts.push(`\nSumber: ${answer.source}`);
-  return parts.join('\n');
+  const parts = [`Soalan: ${question}`, `Jawapan: ${answer.summary}`, answer.explanation];
+  if (answer.dalil) parts.push(`Dalil: ${answer.dalil}`);
+  if (answer.source) parts.push(`Sumber: ${answer.source}`);
+  return parts.join('\n\n');
 }
 
 export default function AnswerContent() {
@@ -191,7 +191,7 @@ export default function AnswerContent() {
             className="flex-1 flex items-center justify-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium py-3 rounded-full hover:border-gray-300 transition-colors text-sm"
           >
             <Sparkles size={16} className="text-emerald-600" />
-            ChatGPT
+            Buka versi ChatGPT
           </a>
         </div>
       </div>
