@@ -55,6 +55,16 @@ describe('POST /api/ask', () => {
     expect(res.status).toBe(400);
   });
 
+  it('returns 400 for question longer than 2000 chars', async () => {
+    const req = new Request('http://localhost/api/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: 'a'.repeat(2001) }),
+    });
+    const res = await POST(req);
+    expect(res.status).toBe(400);
+  });
+
   it('returns 400 for whitespace-only question', async () => {
     const req = new Request('http://localhost/api/ask', {
       method: 'POST',

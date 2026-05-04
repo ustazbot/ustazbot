@@ -57,15 +57,15 @@ const FALLBACK_BODY: Omit<Answer, 'question_id'> = {
 const VALID_CONFIDENCE = new Set(['high', 'medium', 'low']);
 
 function generateId(): string {
-  return Date.now().toString(36) + Math.random().toString(36).slice(2);
+  return Date.now().toString(36) + Math.random().toString(36).padStart(11, '0').slice(2);
 }
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => ({})) as Record<string, unknown>;
   const question = typeof body?.question === 'string' ? body.question.trim() : '';
 
-  if (!question || question.length < 5) {
-    return NextResponse.json({ error: 'Soalan terlalu pendek' }, { status: 400 });
+  if (!question || question.length < 5 || question.length > 2000) {
+    return NextResponse.json({ error: 'Soalan terlalu pendek atau terlalu panjang' }, { status: 400 });
   }
 
   const question_id = generateId();
@@ -95,7 +95,8 @@ export async function POST(request: Request) {
 
     const data = await res.json() as { choices: Array<{ message: { content: string } }> };
     const content = data.choices?.[0]?.message?.content ?? '';
-    const parsed = JSON.parse(content) as Record<string, string>;
+    const raw = content.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
+    const parsed = JSON.parse(raw) as Record<string, string>;
 
     const answer: Answer = {
       question_id,
